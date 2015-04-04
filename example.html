@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title></title>
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/js-base64/base64.js"></script>
+  <script src="bower_components/marked/lib/marked.js"></script>
+  <script src="github-readme.js"></script>
+</head>
+<body>
+
+<!-- Specify options via JS -->
+<div id="readme"></div>
+<!-- Use default options (not typical use) -->
+<div class="readme"></div>
+<!-- Data based options -->
+<div class="readme" data-username="torbensko" data-repo="Kinect-to-Maya-motion-capture"></div>
+
+<script>
+	$('#readme').githubReadme({
+		username: 'torbensko',
+		repo: 'ANU-in-HL2'
+	});
+	$('.readme').githubReadme();
+</script>
+
+</body>
+</html>
