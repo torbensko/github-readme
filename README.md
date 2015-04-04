@@ -2,11 +2,11 @@
 
 Display a github readme on your website.
 
-# Install
+## Install
 
 	bower install ts-github-readme
 
-# Usage
+## Usage
 
 ### Provide options via javascript
 
