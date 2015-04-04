@@ -4,7 +4,17 @@
 	<script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/js-base64/base64.js"></script>
   <script src="bower_components/marked/lib/marked.js"></script>
-  <script src="github-readme.js"></script>
+  <style>
+	  body > div {
+	  	padding: 40px;
+	  	margin-bottom: 10px;
+	  	background: #eee;
+	  	border: 1px solid #aaa;
+	  }
+	  img {
+	  	max-width: 100%;
+	  }
+  </style>
 </head>
 <body>
 
@@ -13,11 +23,14 @@
 <!-- Use default options (not typical use) -->
 <div class="readme"></div>
 <!-- Data based options -->
-<div class="readme" data-username="torbensko" data-repo="Kinect-to-Maya-motion-capture"></div>
+<div class="readme" data-user="torbensko" data-repo="Kinect-to-Maya-motion-capture"></div>
+<!-- Auto initialise -->
+<div data-readme data-user="torbensko" data-repo="billboard"></div>
 
+<script src="github-readme.js"></script>
 <script>
 	$('#readme').githubReadme({
-		username: 'torbensko',
+		user: 'torbensko',
 		repo: 'ANU-in-HL2'
 	});
 	$('.readme').githubReadme();
