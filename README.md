@@ -25,6 +25,7 @@ Display a github readme on your website.
 
 	<div class="readme" data-user="torbensko" data-repo="github-readme"></div>
 	<div class="readme" data-user="torbensko" data-repo="Kinect-to-Maya-motion-capture"></div>
+	<div class="readme" data-src="https://github.com/torbensko/HAL"></div>
 
 	...
 

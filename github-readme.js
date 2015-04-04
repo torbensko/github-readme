@@ -7,6 +7,12 @@
 			repo: 'github-readme'
 		}, options, $el.data());
 
+		if ( options.src ) {
+			var t = options.src.replace(/\/$/).split(/\//);
+			options.user = t[t.length - 2];
+			options.repo = t[t.length - 1];
+		}
+
 		$.ajax({
 		  // github API: repos/username/reponame/readme
 		  url: 'https://api.github.com/repos/'+options.user+'/'+options.repo+'/readme',
