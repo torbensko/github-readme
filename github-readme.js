@@ -4,7 +4,8 @@
 		// Provide the options via arguments or data attributes
 		options = jQuery.extend({
 			user: 'torbensko',
-			repo: 'github-readme'
+			repo: 'github-readme',
+			headingAdjust: 0,
 		}, options, $el.data());
 
 		if ( options.src ) {
@@ -18,7 +19,18 @@
 		  url: 'https://api.github.com/repos/'+options.user+'/'+options.repo+'/readme',
 		  dataType: 'jsonp',
 		  success: function(results) {
-		  	$el.html( marked( Base64.decode( results.data.content ) ) );
+		  	var html = marked( Base64.decode( results.data.content ) );
+
+		  	if ( options.headingAdjust ) {
+		  		// Ensure it's a number, not just a true value
+		  		if ( parseInt(options.headingAdjust) !== options.headingAdjust ) {
+		  			options.headingAdjust = 1;
+		  		}
+		  		html = html.replace(/(<\/?h)(\d)/g, function(match, tag, level) { 
+		  			return tag+(parseInt(level) + options.headingAdjust);
+		  		});
+		  	}
+		  	$el.html( html );
 		  }
 		});
 	}

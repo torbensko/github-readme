@@ -10,6 +10,9 @@
 	  	margin-bottom: 10px;
 	  	background: #eee;
 	  	border: 1px solid #aaa;
+	  	max-height: 200px;
+	  	overflow-y: scroll;
+	  	max-width: 60%;
 	  }
 	  img {
 	  	max-width: 100%;
@@ -18,24 +21,36 @@
 </head>
 <body>
 
-<!-- Specify options via JS -->
+<h2>Data options: user + repo</h2>
+<div class="readme" 
+		data-user="torbensko" 
+		data-repo="Kinect-to-Maya-motion-capture"
+		data-heading-adjust="2"></div>
+
+<h2>Data options: URL</h2>
+<div class="readme" 
+		data-src="https://github.com/torbensko/HAL"></div>
+
+<h2>Auto initialise (needs to exist before JS is loaded)</h2>
+<div 
+		data-readme 
+		data-user="torbensko" 
+		data-repo="billboard"></div>
+
+<h2>Options via JS</h2>
 <div id="readme"></div>
-<!-- Use default options (not typical use) -->
-<div class="readme"></div>
-<!-- Data based options -->
-<div class="readme" data-user="torbensko" data-repo="Kinect-to-Maya-motion-capture"></div>
-<!-- Data based options, using src -->
-<div class="readme" data-src="https://github.com/torbensko/HAL"></div>
-<!-- Auto initialise -->
-<div data-readme data-user="torbensko" data-repo="billboard"></div>
 
 <script src="github-readme.js"></script>
+
 <script>
+	// Options via data attributes
+	$('.readme').githubReadme();
+	// Manual options
 	$('#readme').githubReadme({
 		user: 'torbensko',
-		repo: 'ANU-in-HL2'
+		repo: 'ANU-in-HL2',
+		headingAdjust: 1,
 	});
-	$('.readme').githubReadme();
 </script>
 
 </body>
