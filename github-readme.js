@@ -1,38 +1,32 @@
 (function ($) {
 
-	console.log('hey');
-
 	function insertReadme( $el, options ) {
 		// Provide the options via arguments or data attributes
 		options = jQuery.extend({
-			user: 'torbensko',
-			repo: 'github-readme',
-			headingAdjust: 0,
+			username: 			'_missing_',
+			repo: 					'_missing_',
+			headingReduce: 	0,
 		}, options, $el.data());
 
-		if ( options.src ) {
-			var t = options.src.replace(/\/$/).split(/\//);
-			options.user = t[t.length - 2];
+		if ( options.githubReadme ) {
+			var t = options.githubReadme.replace(/\/$/).split(/\//);
+			options.username = t[t.length - 2];
 			options.repo = t[t.length - 1];
 		}
 
 		$.ajax({
 		  // github API: repos/username/reponame/readme
-		  url: 'https://api.github.com/repos/'+options.user+'/'+options.repo+'/readme',
+		  url: 'https://api.github.com/repos/'+options.username+'/'+options.repo+'/readme',
 		  dataType: 'jsonp',
 		  success: function(results) {
-		  	var html = marked( Base64.decode( results.data.content ) );
+		  	var markdown = Base64.decode( results.data.content );
+						headingReplacement = '#';
 
-		  	if ( options.headingAdjust ) {
-		  		// Ensure it's a number, not just a true value
-		  		if ( parseInt(options.headingAdjust) !== options.headingAdjust ) {
-		  			options.headingAdjust = 1;
-		  		}
-		  		html = html.replace(/(<\/?h)(\d)/g, function(match, tag, level) { 
-		  			return tag+(parseInt(level) + options.headingAdjust);
-		  		});
-		  	}
-		  	$el.html( html );
+				// Add additional hashes to the headings, to reduce their level
+				for ( var i = 0; i < options.headingReduce; i++ ) { headingReplacement += '#'; }
+				markdown = markdown.replace(/^#|[\n\r]#/g, headingReplacement);
+
+		  	$el.html( marked(markdown) );
 		  }
 		});
 	}
@@ -42,7 +36,5 @@
 			insertReadme($(this), options);
 		});
 	};
-
-	$('[data-readme]').githubReadme();
 
 })(jQuery);

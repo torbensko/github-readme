@@ -12,7 +12,7 @@ Display a github readme on your website in the following manner:
 
 ## Options and features
 
-* adjustable headings levels
+* *Reduce headings levels* - making it easier to fit into existing page content.
 
 Please refer to the demo for instructions and examples of how to use the plugin.
 
@@ -32,7 +32,6 @@ npm install
 To run the demo use
 
 ```
-cd demo
 node server.js
 ```
 
