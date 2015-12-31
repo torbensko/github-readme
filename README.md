@@ -12,26 +12,23 @@ Display a github readme on your website in the following manner:
 
 ## Options and features
 
-* *Reduce headings levels* - making it easier to fit into existing page content.
+* Reduce headings levels, to help format it in the context of another page.
 
-Please refer to the demo for instructions and examples of how to use the plugin.
+Please refer to the demo for more details and examples of how to use the plugin.
+
 
 ## Install
 
 	bower install torbensko/github-readme
 
+
 ## Development
 
-Initialisation:
+Install:
 
-```
-bower install
-npm install
-```
+		bower install
+		npm install
 
-To run the demo use
+Run demo:
 
-```
-node server.js
-```
-
+		node demo-server.js
