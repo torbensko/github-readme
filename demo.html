@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+	  <style>
+		  body > div {
+		  	padding: 40px;
+		  	margin-bottom: 10px;
+		  	background: #fefefe;
+		  	border-radius: 3px;
+		  	box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+		  	max-height: 400px;
+		  	overflow-y: scroll;
+		  	max-width: 500px;
+		  }
+		  img {
+		  	max-width: 100%;
+		  }
+	  </style>
+	</head>
+	<body>
+		<h2>Data options: user + repo</h2>
+		<div class="readme" 
+				data-user="torbensko" 
+				data-repo="Kinect-to-Maya-motion-capture"
+				data-heading-adjust="2"></div>
+
+		<h2>Data options: URL</h2>
+		<div class="readme" data-src="https://github.com/torbensko/github-readme"></div>
+
+		<h2>Auto initialise (needs to exist before JS is loaded)</h2>
+		<div data-readme 
+				data-user="torbensko" 
+				data-repo="billboard"></div>
+
+		<h2>Options via JS</h2>
+		<div id="readme"></div>
+
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+	  <script src="bower_components/js-base64/base64.js"></script>
+	  <script src="bower_components/marked/lib/marked.js"></script>
+		<script src="github-readme.js"></script>
+		<script>
+			// Options via data attributes
+			$('.readme').githubReadme();
+			// Manual options
+			$('#readme').githubReadme({
+				user: 'torbensko',
+				repo: 'ANU-in-HL2',
+				headingAdjust: 1,
+			});
+		</script>
+
+	</body>
+</html>

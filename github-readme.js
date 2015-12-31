@@ -1,5 +1,7 @@
 (function ($) {
 
+	console.log('hey');
+
 	function insertReadme( $el, options ) {
 		// Provide the options via arguments or data attributes
 		options = jQuery.extend({

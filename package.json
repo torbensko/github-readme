@@ -1,0 +1,20 @@
+{
+  "name": "github-readme",
+  "version": "1.2.1",
+  "description": "Display a github readme on your website.",
+  "main": "github-readme.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/torbensko/github-readme.git"
+  },
+  "author": "Torben Sko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/torbensko/github-readme/issues"
+  },
+  "homepage": "https://github.com/torbensko/github-readme#readme"
+}
